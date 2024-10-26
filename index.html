@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JASS Digital Marketing</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;700&family=Caveat:wght@700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.css">
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
+    <!-- Anime.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- バックグラウンドアニメーション -->
+    <div class="background-animations">
+        <svg class="background-shapes" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <defs>
+                <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:0.2"/>
+                    <stop offset="100%" style="stop-color:#1a237e;stop-opacity:0.2"/>
+                </linearGradient>
+                <linearGradient id="gradient2" x1="100%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#1a237e;stop-opacity:0.2"/>
+                    <stop offset="100%" style="stop-color:#ff6b6b;stop-opacity:0.2"/>
+                </linearGradient>
+            </defs>
+            <path class="animated-path" d="M0,50 Q25,0 50,50 T100,50" fill="none" stroke="url(#gradient1)"/>
+            <path class="animated-path" d="M0,20 Q25,70 50,20 T100,20" fill="none" stroke="url(#gradient2)"/>
+        </svg>
+    </div>
+
+    <!-- パーティクルアニメーション -->
+    <div class="particle-container">
+        <svg class="particles" viewBox="0 0 1000 1000">
+            <defs>
+                <radialGradient id="particle-gradient">
+                    <stop offset="0%" stop-color="#ff6b6b"/>
+                    <stop offset="100%" stop-color="#1a237e"/>
+                </radialGradient>
+            </defs>
+        </svg>
+    </div>
+
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="header-container">
+            <a href="/" class="header-logo">
+                <span class="logo-text">JASS</span>
+                <span class="logo-accent">Digital Marketing</span>
+            </a>
+            
+            <nav class="header-nav">
+                <ul class="nav-list">
+                    <li><a href="#service" class="nav-link">サービス内容 <span class="nav-link-en">Services</span></a></li>
+                    <li><a href="#price" class="nav-link">料金プラン <span class="nav-link-en">Pricing</span></a></li>
+                    <li><a href="#results" class="nav-link">成果報酬広告 <span class="nav-link-en">Performance</span></a></li>
+                    <li><a href="#contact" class="nav-link-button">お問い合わせ</a></li>
+                </ul>
+            </nav>
+
+            <button class="mobile-menu-button">
+                <span class="menu-bar"></span>
+                <span class="menu-bar"></span>
+                <span class="menu-bar"></span>
+            </button>
+        </div>
+
+        <nav class="mobile-menu">
+            <ul class="mobile-nav-list">
+                <li><a href="#service">サービス内容</a></li>
+                <li><a href="#price">料金プラン</a></li>
+                <li><a href="#results">成果報酬広告</a></li>
+                <li><a href="#contact" class="mobile-contact">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <div class="hero-background">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGNsYXNzPSJiYWNrZ3JvdW5kLXN2ZyI+CiAgICAgICAgICAgICAgICA8ZGVmcz4KICAgICAgICAgICAgICAgICAgICA8cmFkaWFsZ3JhZGllbnQgaWQ9ImdyYWQxIiBjeD0iNTAlIiBjeT0iNTAlIiByPSI1MCUiPgogICAgICAgICAgICAgICAgICAgICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjpyZ2JhKDI1NSwxMDcsMTA3LDAuNSk7c3RvcC1vcGFjaXR5OjEiPjwvc3RvcD4KICAgICAgICAgICAgICAgICAgICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjpyZ2JhKDI1NSwxMDcsMTA3LDApO3N0b3Atb3BhY2l0eToxIj48L3N0b3A+CiAgICAgICAgICAgICAgICAgICAgPC9yYWRpYWxncmFkaWVudD4KICAgICAgICAgICAgICAgIDwvZGVmcz4KICAgICAgICAgICAgICAgIDxjaXJjbGUgY3g9IjIwJSIgY3k9IjMwJSIgcj0iMTAwIiBmaWxsPSJ1cmwoI2dyYWQxKSI+CiAgICAgICAgICAgICAgICAgICAgPGFuaW1hdGUgYXR0cmlidXRlbmFtZT0iciIgZnJvbT0iODAiIHRvPSIxMDAiIGR1cj0iNXMiIHJlcGVhdGNvdW50PSJpbmRlZmluaXRlIj48L2FuaW1hdGU+CiAgICAgICAgICAgICAgICAgICAgPGFuaW1hdGUgYXR0cmlidXRlbmFtZT0ib3BhY2l0eSIgZnJvbT0iMC44IiB0bz0iMC40IiBkdXI9IjVzIiByZXBlYXRjb3VudD0iaW5kZWZpbml0ZSI+PC9hbmltYXRlPgogICAgICAgICAgICAgICAgPC9jaXJjbGU+CiAgICAgICAgICAgICAgICA8Y2lyY2xlIGN4PSI4MCUiIGN5PSI3MCUiIHI9IjE1MCIgZmlsbD0idXJsKCNncmFkMSkiPgogICAgICAgICAgICAgICAgICAgIDxhbmltYXRlIGF0dHJpYnV0ZW5hbWU9InIiIGZyb209IjEzMCIgdG89IjE1MCIgZHVyPSI2cyIgcmVwZWF0Y291bnQ9ImluZGVmaW5pdGUiPjwvYW5pbWF0ZT4KICAgICAgICAgICAgICAgICAgICA8YW5pbWF0ZSBhdHRyaWJ1dGVuYW1lPSJvcGFjaXR5IiBmcm9tPSIwLjciIHRvPSIwLjMiIGR1cj0iNnMiIHJlcGVhdGNvdW50PSJpbmRlZmluaXRlIj48L2FuaW1hdGU+CiAgICAgICAgICAgICAgICA8L2NpcmNsZT4KICAgICAgICAgICAgPC9zdmc+" class="background-svg">
+        </div>
+
+        <div class="hero-image-section">
+            <img src="img/ホームページ制作はゴールではない、新たな成長の始まりです.png" alt="LP制作イメージ" class="hero-image">
+            <h2 id="engagement-driven-lp-design" class="hero-overlay-text">
+                <span class="char">E</span><span class="char">n</span><span class="char">g</span><span class="char">a</span><span class="char">g</span><span class="char">e</span><span class="char">m</span><span class="char">e</span><span class="char">n</span><span class="char">t</span><span class="char">-</span><span class="char">D</span><span class="char">r</span><span class="char">i</span><span class="char">v</span><span class="char">e</span><span class="char">n</span><span class="char"> </span><span class="char">L</span><span class="char">P</span><span class="char"> </span><span class="char">D</span><span class="char">e</span><span class="char">s</span><span class="char">i</span><span class="char">g</span><span class="char">n</span>
+            </h2>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 id="万円から始まるサイト構築-その後の集客販促採用求人支援まで-完全サポート" class="hero-title">
+                    <span class="hero-title-main">1万円から始まるサイト構築</span>
+                    <span class="hero-title-sub">その後の集客・販促・採用求人支援まで 完全サポート</span>
+                </h1>
+                <div class="hero-cta">
+                    <a href="#contact" class="hero-button">無料相談はこちら</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- サービスセクション -->
+    <section id="service" class="section services">
+        <div class="services-container">
+            <h2 id="サービスの特徴" class="services-title">サービスの特徴</h2>
+            <div class="services-grid">
+                <article class="service-card" index="1">
+                    <h3 id="業界最安で-lp制作が可能" class="service-title">業界最安で LP制作が可能！</h3>
+                    <div class="service-content">
+                        初期費用を抑えて、すぐにビジネスをスタート。<br>
+                        高品質なLPを安価で提供します。<br>
+                        スマホ対応、SEO対策も全て含みます。
+                    </div>
+                    <div class="service-line"></div>
+                </article>
+
+                <article class="service-card" index="2">
+                    <h3 id="業界初-成果報酬型広告-活用による支援" class="service-title">業界初 「成果報酬型広告」 活用による支援</h3>
+                    <div class="service-content">
+                        成果が出なければ費用は発生しません。<br>
+                        リスクフリーな広告運用を実現します。<br>
+                        実績に基づいた効果的な戦略をご提案。
+                    </div>
+                    <div class="service-line"></div>
+                </article>
+
+                <article class="service-card" index="3">
+                    <h3 id="sns支援" class="service-title">SNS支援</h3>
+                    <div class="service-content">
+                        SNSマーケティングで<br>
+                        効果的な集客とブランディングを実現。<br>
+                        各プラットフォームに最適化した運用をサポート。
+                    </div>
+                    <div class="service-line"></div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 最安値セクション -->
+    <section id="price" class="section lowest-price">
+        <div class="lowest-price-container">
+            <div class="lowest-price-content">
+                <h2 id="業界最安-ホームページ制作-1万円" class="lowest-price-title">【業界最安！】 ホームページ制作 1万円</h2>
+                <ul>
+                    <li>スマホ連携も無料</li>
+                    <li>基本的なSEO対策も無料</li>
+                </ul>
+                <div class="lowest-price-monthly">
+                    <h3>さらに、月額制で以下も対応！</h3>
+                    <ul>
+                        <li>バナー作成/バナー加工、修正</li>
+                        <li>SEO対策</li>
+                        <li>問い合わせフォーム修正</li>
+                        <li>会社概要情報変更</li>
+                        <li>ページ追加</li>
+                        <li>ホームページレイアウト変更</li>
+                        <li>写真素材差し替え</li>
+                        <li>その他デザインの修正のご要望も対応</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="lowest-price-image">
+                <div class="image-overlay"></div>
+                <img src="img/pcコーディング.jpg" alt="ホームページ制作イメージ">
+            </div>
+        </div>
+    </section>
+
+    <!-- HP作成の先へセクション -->
+    <section class="section beyond-creation">
+        <div class="beyond-creation-container">
+            <h2 id="hp作成がゴールではなくその先へ" class="beyond-creation-title">HP作成がゴールではなく、その先へ</h2>
+            <div class="beyond-creation-message">
+                我々のサービスは単にHPを作成するだけではなく、<br>
+                ビジネスを成功させるための総合的な支援を行います。<br>
+                HPの公開後、次のような集客・販促活動に積極的に取り組みます
+            </div>
+        </div>
+    </section>
+
+    <!-- 成果報酬型広告セクション -->
+    <section id="results" class="section performance-ads">
+        <div class="performance-ads-container">
+            <div class="performance-ads-content">
+                <h2 id="成果報酬型広告とは" class="performance-ads-title">◆成果報酬型広告とは？</h2>
+                <div class="performance-ads-description">
+                    実際の成果（商品購入、資料請求、申し込みなど）が発生した時のみ、<br>
+                    広告費用が発生する仕組みです。
+                    <div class="performance-ads-point">
+                        つまり、成果が出なければ広告費用は0円。<br>
+                        広告費用の無駄づかいリスクを完全に排除できます。
+                    </div>
+                </div>
+            </div>
+            <div class="performance-ads-diagram">
+                <div class="diagram-container">
+                    <img src="img/page_6.jpeg" alt="成果報酬型広告の仕組み図">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- コストコントロールセクション -->
+    <section class="section cost-control">
+        <div class="cost-control-container">
+            <div class="cost-control-diagram">
+                <div class="diagram-container">
+                    <img src="img/page_11.jpeg" alt="成果報酬型広告の流れ図">
+                </div>
+            </div>
+            <div class="cost-control-content">
+                <h2 id="コストのコントロールのしやすさ" class="cost-control-title">◆コストのコントロールのしやすさ</h2>
+                <div class="cost-control-flow">
+                    <div class="flow-item">
+                        <span class="flow-number">1</span>
+                        成果が発生後に広告費の支払い
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-item">
+                        <span class="flow-number">2</span>
+                        報酬額を途中で柔軟に変更可能
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-item">
+                        <span class="flow-number">3</span>
+                        成果を承認するか否かも、広告主側でコントロール可能
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 使用例セクション -->
+    <section class="section usage-example">
+        <div class="usage-example-container">
+            <h2 id="成果報酬で集客がしたい方へ" class="usage-example-title">成果報酬で集客がしたい方へ</h2>
+            <h3 id="成果報酬広告の活用イメージ-脱毛サロン例" class="usage-example-subtitle">成果報酬広告の活用イメージ | 脱毛サロン（例）</h3>
+            <div class="slider-container">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="img/page_13.jpeg" alt="成果報酬広告の例1" loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="img/page_15.jpeg" alt="成果報酬広告の例2" loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="img/page_17.jpeg" alt="成果報酬広告の例3" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3つのポイントセクション -->
+    <section class="section three-points">
+        <div class="three-points-container">
+            <h2 id="成果型報酬が選ばれる3つのポイント" class="three-points-title">◆成果型報酬が選ばれる3つのポイント</h2>
+            <div class="points-grid">
+                <div class="point-card">
+                    <span class="point-number">01</span>
+                    初期費用0円からスタート可能<br>
+                    リスクを最小限に抑えて、まずは始められます。
+                </div>
+                <div class="point-card">
+                    <span class="point-number">02</span>
+                    成果報酬型だからこそ本気の運用<br>
+                    当社の収益は、お客様の成果に直結。<br>
+                    だからこそ、最大限の効果を追求します。
+                </div>
+                <div class="point-card">
+                    <span class="point-number">03</span>
+                    豊富な運用実績に基づく戦略設計<br>
+                    業界や商材に合わせた最適な広告設計で<br>
+                    費用対効果の高い集客を実現します。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 料金プランセクション -->
+    <section id="pricing" class="section pricing">
+        <div class="pricing-container">
+            <h2 id="料金プラン-魅力的な価格であなたのビジネスをサポート" class="pricing-title">▼料金プラン 魅力的な価格で、あなたのビジネスをサポート</h2>
+            <div class="pricing-cards">
+                <div class="price-card main-plan">
+                    <div class="price-card-header">
+                        <h3 id="業界最安値に挑戦" class="price-card-label">業界最安値に挑戦！</h3>
+                        <div class="price-amount">
+                            <span class="price">10,000</span>
+                            <span class="currency">円</span>
+                            <span class="tax">(税別)</span>
+                        </div>
+                    </div>
+                    <div class="price-card-content">
+                        <h4 id="制作費用に含まれるもの" class="included-title">＜制作費用に含まれるもの＞</h4>
+                        <ul class="feature-list">
+                            <li>ページデザイン</li>
+                            <li>スマートフォン対応</li>
+                            <li>基本的なSEO対策</li>
+                            <li>お申込みフォーム設置</li>
+                            <li>SSLセキュリティ対応</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="price-card monthly-plan">
+                    <div class="price-card-header">
+                        <h3 id="月額運用保守プラン" class="price-card-label">月額運用保守プラン</h3>
+                        <div class="price-amount">
+                            <span class="price">10,000</span>
+                            <span class="currency">円～</span>
+                            <span class="tax">(税別)</span>
+                        </div>
+                    </div>
+                    <div class="price-card-content">
+                        <ul>
+                            <li>基本的な保守管理</li>
+                            <li>更新対応</li>
+                            <li>アクセス解析レポート</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-cta">
+                <h3>▼お問い合わせ・無料相談</h3>
+                <p>まずは気軽にご相談ください！</p>
+                <a href="#contact" class="contact-button">無料相談はこちら</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer-container">
+        <div class="footer-main">
+            <div class="footer-company">
+                <a href="/" class="footer-logo">株式会社JASS</a>
+                <p>Engagement-Driven LP Design<br>
+                1万円から始まるサイト構築</p>
+            </div>
+            <div class="footer-nav-grid">
+                <div class="footer-nav-group">
+                    <h3>サービス</h3>
+                    <ul>
+                        <li><a href="#lp">LP制作</a></li>
+                        <li><a href="#performance">成果報酬型広告</a></li>
+                        <li><a href="#sns">SNS運用支援</a></li>
+                        <li><a href="#maintenance">運用保守</a></li>
+                    </ul>
+                </div>
+                <div class="footer-nav-group">
+                    <h3>料金プラン</h3>
+                    <ul>
+                        <li><a href="#basic">制作費用</a></li>
+                        <li><a href="#monthly">月額プラン</a></li>
+                        <li><a href="#performance-fee">成果報酬</a></li>
+                    </ul>
+                </div>
+                <div class="footer-nav-group">
+                    <h3>サポート</h3>
+                    <ul>
+                        <li><a href="#contact">お問い合わせ</a></li>
+                        <li><a href="#faq">よくある質問</a></li>
+                        <li><a href="#flow">ご利用の流れ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-contact">
+                <h3>お問い合わせ</h3>
+                <a href="#contact" class="footer-contact-button">無料相談はこちら</a>
+                <p>初期費用0円からスタート可能！<br>
+                まずはお気軽にご相談ください。</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-legal">
+                <a href="#privacy">プライバシーポリシー</a>
+                <a href="#terms">利用規約</a>
+                <a href="#company">会社概要</a>
+            </div>
+            <p>© 2024 株式会社JASS All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
