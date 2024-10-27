@@ -141,8 +141,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             document.addEventListener('click', (e) => {
-                if (!this.mobileMenu.contains(e.target) && 
-                    !this.mobileMenuButton.contains(e.target) && 
+                if (!this.mobileMenu.contains(e.target) &&
+                    !this.mobileMenuButton.contains(e.target) &&
                     this.mobileMenu.classList.contains('active')) {
                     this.toggleMobileMenu();
                 }
@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     e.preventDefault();
                     const targetId = anchor.getAttribute('href');
                     const target = document.querySelector(targetId);
-                    
+
                     if (target) {
                         const headerHeight = this.header.offsetHeight;
                         const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
@@ -287,7 +287,7 @@ document.addEventListener('DOMContentLoaded', () => {
         animateHeroText() {
             const heroTitle = document.querySelector('.hero-title-main');
             const heroSubtitle = document.querySelector('.hero-title-sub');
-            
+
             if (heroTitle && heroSubtitle) {
                 const splitTitle = new SplitType(heroTitle, { types: 'chars' });
                 const splitSubtitle = new SplitType(heroSubtitle, { types: 'chars' });
@@ -328,7 +328,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Swiperの初期化
-    var swiper = new Swiper('.mySwiper', {
+    const swiper = new Swiper('.mySwiper', {
         loop: true,
         autoplay: {
             delay: 5000,
@@ -358,7 +358,13 @@ document.addEventListener('DOMContentLoaded', () => {
         },
     });
 
-    // 初期化
+    // 文字アニメーション用のディレイ設定
+    const chars = document.querySelectorAll('.char');
+    chars.forEach((char, index) => {
+        char.style.animationDelay = `${index * 0.15}s`;
+    });
+
+    // 各クラスの初期化
     try {
         new ParticleSystem();
         new BackgroundAnimation();
