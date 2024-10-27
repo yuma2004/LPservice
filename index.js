@@ -1,3 +1,5 @@
+// script.js
+
 document.addEventListener('DOMContentLoaded', () => {
     // パーティクルアニメーション
     class ParticleSystem {
@@ -74,82 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     transformOrigin: 'center center',
                     repeat: -1,
                     ease: 'none'
-                });
-            });
-        }
-    }
-
-    // スライダーコントローラー
-    class SliderController {
-        constructor() {
-            this.container = document.querySelector('.swiper');
-            if (!this.container) {
-                console.error('Slider container not found');
-                return;
-            }
-
-            this.initSwiper();
-        }
-
-        initSwiper() {
-            try {
-                this.swiper = new Swiper('.swiper', {
-                    slidesPerView: 1,
-                    spaceBetween: 30,
-                    loop: true,
-                    speed: 800,
-                    effect: 'creative',
-                    creativeEffect: {
-                        prev: {
-                            translate: ['-120%', 0, -500],
-                            rotate: [0, 0, -15],
-                            opacity: 0
-                        },
-                        next: {
-                            translate: ['120%', 0, -500],
-                            rotate: [0, 0, 15],
-                            opacity: 0
-                        }
-                    },
-                    autoplay: {
-                        delay: 5000,
-                        disableOnInteraction: false,
-                        pauseOnMouseEnter: true
-                    },
-                    pagination: {
-                        el: '.swiper-pagination',
-                        clickable: true,
-                        renderBullet: function (index, className) {
-                            return <span class="${className}"></span>;
-                        }
-                    },
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev'
-                    },
-                    on: {
-                        slideChange: () => {
-                            this.animateSlideContent();
-                        }
-                    }
-                });
-
-            } catch (error) {
-                console.error('Swiper initialization error:', error);
-            }
-        }
-
-        animateSlideContent() {
-            const activeSlide = this.swiper.slides[this.swiper.activeIndex];
-            const elements = activeSlide.querySelectorAll('.animate-on-slide');
-            
-            elements.forEach((element, index) => {
-                gsap.from(element, {
-                    duration: 0.8,
-                    y: 30,
-                    opacity: 0,
-                    delay: index * 0.2,
-                    ease: 'power3.out'
                 });
             });
         }
@@ -403,11 +329,43 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Swiperの初期化
+    var swiper = new Swiper('.mySwiper', {
+        loop: true, // ループの有効化
+        autoplay: {
+            delay: 5000, // 自動再生の遅延時間（ミリ秒）
+            disableOnInteraction: false, // ユーザー操作後も自動再生を続行
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true, // ページネーションのクリックを有効化
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        // レスポンシブ設定
+        breakpoints: {
+            640: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+            },
+            768: {
+                slidesPerView: 1,
+                spaceBetween: 30,
+            },
+            1024: {
+                slidesPerView: 1,
+                spaceBetween: 40,
+            },
+        },
+    });
+
     // 初期化
     try {
         new ParticleSystem();
         new BackgroundAnimation();
-        new SliderController();
+        // new SliderController(); // 削除済み
         new HeaderController();
         new ScrollAnimationController();
         new TextAnimationController();
@@ -415,5 +373,3 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Initialization error:', error);
     }
 });
-
-

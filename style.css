@@ -32,7 +32,7 @@ img {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: -1;
+    z-index: -2; /* 背景の下に配置 */
 }
 
 .background-shapes {
@@ -67,7 +67,7 @@ img {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: -1;
+    z-index: -1; /* 背景アニメーションの上 */
 }
 
 .particles {
@@ -97,7 +97,7 @@ img {
     width: 100%;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
-    z-index: 1000;
+    z-index: 1000; /* ヘッダーを最前面に */
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     transform: translateY(0);
@@ -118,6 +118,7 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .header-logo {
@@ -252,6 +253,7 @@ img {
     transform: translateY(-100%);
     transition: transform 0.3s ease;
     backdrop-filter: blur(10px);
+    z-index: 999; /* ヘッダーの下 */
 }
 
 .mobile-menu.active {
@@ -313,6 +315,7 @@ img {
     display: flex;
     overflow: hidden;
     background-color: #f0f4f8;
+    z-index: 0; /* 背景よりも下 */
 }
 
 .hero-background {
@@ -321,7 +324,7 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0;
+    z-index: -1; /* 背景として配置 */
     overflow: hidden;
 }
 
@@ -378,6 +381,7 @@ img {
     width: 50%;
     height: 100%;
     overflow: hidden;
+    z-index: 1; /* コンテンツが背景より上に表示 */
 }
 
 .hero-image {
@@ -410,7 +414,7 @@ img {
     text-align: center;
     white-space: nowrap;
     text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
-    z-index: 2;
+    z-index: 2; /* テキストが他のコンテンツよりも前面 */
 }
 
 .hero-overlay-text .char {
@@ -433,7 +437,7 @@ img {
     padding: 40px 60px;
     display: flex;
     align-items: center;
-    z-index: 1;
+    z-index: 1; /* コンテンツが背景より上に表示 */
 }
 
 .hero-text {
@@ -511,6 +515,7 @@ img {
     background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
     overflow: hidden;
     position: relative;
+    z-index: 1; /* コンテンツが背景より上 */
 }
 
 .services-container {
@@ -525,9 +530,9 @@ img {
     font-size: 2.2rem;
     color: #333;
     margin-bottom: 60px;
-    opacity: 0;
+    /* opacity: 0;
     transform: translateY(20px);
-    animation: fadeInUp 0.8s ease forwards;
+    animation: fadeInUp 0.8s ease forwards; */
     position: relative;
 }
 
@@ -558,13 +563,14 @@ img {
     position: relative;
     cursor: pointer;
     overflow: hidden;
-    opacity: 0;
-    transform: translateY(30px);
+    /* opacity: 0; */
+    /* transform: translateY(30px); */
     transition: all 0.3s ease;
     min-height: 300px;
     display: flex;
     flex-direction: column;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 1; /* 前面に表示 */
 }
 
 .service-card::before {
@@ -661,6 +667,13 @@ img {
     }
 }
 
+@keyframes fadeInChar {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Responsive Styles */
 @media (max-width: 968px) {
     .hero {
@@ -727,6 +740,20 @@ img {
     .services-title {
         font-size: 1.8rem;
     }
+
+    /* Ensure animated-heading animations adjust for smaller screens */
+    .animated-heading .char {
+        animation: fadeInChar 0.3s forwards;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .services-container {
+        padding: 0 10px;
+    }
 }
 
 /* Lowest Price Section Styles */
@@ -735,6 +762,7 @@ img {
     background-color: #f8f9fa;
     overflow: hidden;
     position: relative;
+    z-index: 1;
 }
 
 .lowest-price-container {
@@ -855,7 +883,7 @@ img {
     right: -20px;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, rgba(26,35,126,0.1), rgba(255,107,107,0.1));
+    background: linear-gradient(45deg, rgba(26,35,126,0.1) 0%, rgba(255,107,107,0.1) 100%);
     z-index: 1;
     border-radius: 8px;
     opacity: 0.8;
@@ -888,6 +916,7 @@ img {
     background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
     position: relative;
     overflow: hidden;
+    z-index: 1;
 }
 
 .beyond-creation::before {
@@ -897,7 +926,8 @@ img {
     height: 200%;
     top: -50%;
     left: -50%;
-    background: radial-gradient(circle at center, rgba(255,107,107,0.03) 0%, rgba(255,255,255,0) 70%);
+    background: radial-gradient(circle at 30% 30%, rgba(26,35,126,0.03) 0%, rgba(255,255,255,0) 70%),
+                radial-gradient(circle at 70% 70%, rgba(255,107,107,0.03) 0%, rgba(255,255,255,0) 70%);
     animation: rotate 30s linear infinite;
 }
 
@@ -958,9 +988,9 @@ img {
     background-color: #f8f9fa;
     position: relative;
     overflow: hidden;
+    z-index: 1;
 }
 
-/* Performance Ads Section Styles (続き) */
 .performance-ads-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -978,20 +1008,10 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, rgba(26,35,126,0.03), rgba(255,107,107,0.03));
-    transform-origin: center;
-    animation: gradientFlow 10s ease infinite;
-}
-
-@keyframes gradientFlow {
-    0%, 100% {
-        transform: scale(1);
-        opacity: 0.5;
-    }
-    50% {
-        transform: scale(1.2);
-        opacity: 0.3;
-    }
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(26,35,126,0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255,107,107,0.03) 0%, transparent 50%);
+    animation: rotate 30s linear infinite;
 }
 
 .performance-ads-content {
@@ -1088,6 +1108,7 @@ img {
     background-color: #ffffff;
     position: relative;
     overflow: hidden;
+    z-index: 1;
 }
 
 .cost-control::after {
@@ -1225,6 +1246,7 @@ img {
     background-color: #f8f9fa;
     position: relative;
     overflow: hidden;
+    z-index: 1;
 }
 
 .usage-example::before {
@@ -1287,78 +1309,77 @@ img {
     animation: fadeInUp 0.8s ease forwards 0.6s;
 }
 
-/* Swiper Customization */
-.swiper {
+/* custom.css */
+
+/* セクションの基本スタイル */
+.section.usage-example {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+}
+
+.usage-example-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.usage-example-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.usage-example-subtitle {
+    font-size: 1.5em;
+    margin-bottom: 40px;
+    color: #555;
+}
+
+/* スワイパーコンテナのスタイル */
+.slider-container {
     width: 100%;
-    height: auto;
-    padding: 20px;
+    position: relative;
 }
 
-.swiper-slide {
-    background: transparent;
-    transform: scale(0.8);
-    opacity: 0.5;
-    transition: all 0.3s ease;
-}
-
-.swiper-slide-active {
-    transform: scale(1);
-    opacity: 1;
-}
-
+/* 画像のスタイル */
 .swiper-slide img {
     width: 100%;
     height: auto;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
-.swiper-slide-active img {
-    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+/* ナビゲーションボタンのカスタマイズ */
+.swiper-button-prev,
+.swiper-button-next {
+    color: #333;
 }
 
-.swiper-button-next,
-.swiper-button-prev {
-    width: 50px;
-    height: 50px;
-    background: white;
-    border-radius: 50%;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    color: #000;
 }
 
-.swiper-button-next:after,
-.swiper-button-prev:after {
-    font-size: 20px;
-    color: #1a237e;
-}
-
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
-    background: #1a237e;
-    transform: scale(1.1);
-}
-
-.swiper-button-next:hover:after,
-.swiper-button-prev:hover:after {
-    color: white;
-}
-
+/* ページネーションのカスタマイズ */
 .swiper-pagination-bullet {
-    width: 10px;
-    height: 10px;
-    background: #1a237e;
-    opacity: 0.3;
-    transition: all 0.3s ease;
+    background: #ccc;
+    opacity: 1;
 }
 
 .swiper-pagination-bullet-active {
-    width: 30px;
-    border-radius: 5px;
-    background: #1a237e;
-    opacity: 1;
+    background: #333;
 }
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .usage-example-title {
+        font-size: 1.5em;
+    }
+
+    .usage-example-subtitle {
+        font-size: 1.2em;
+    }
+}
+
 
 /* Three Points Section Styles */
 .three-points {
@@ -1366,6 +1387,7 @@ img {
     background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
     position: relative;
     overflow: hidden;
+    z-index: 1;
 }
 
 .three-points::before {
@@ -1376,8 +1398,8 @@ img {
     width: 200%;
     height: 200%;
     background: 
-        radial-gradient(circle at 30% 30%, rgba(26,35,126,0.03) 0%, transparent 70%),
-        radial-gradient(circle at 70% 70%, rgba(255,107,107,0.03) 0%, transparent 70%);
+        radial-gradient(circle at 30% 30%, rgba(26,35,126,0.03) 0%, rgba(255,107,107,0.03) 0%),
+        radial-gradient(circle at 70% 70%, rgba(255,107,107,0.03) 0%, rgba(255,255,255,0) 0%);
     animation: rotate 30s linear infinite;
 }
 
@@ -1430,21 +1452,21 @@ img {
     overflow: hidden;
     opacity: 0;
     transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
 }
 
 .point-card:nth-child(1) {
-    animation: fadeInUp 0.8s ease forwards 0.3s;
+    animation-delay: 0.3s;
 }
 
 .point-card:nth-child(2) {
-    animation: fadeInUp 0.8s ease forwards 0.6s;
+    animation-delay: 0.6s;
 }
 
 .point-card:nth-child(3) {
-    animation: fadeInUp 0.8s ease forwards 0.9s;
+    animation-delay: 0.9s;
 }
 
-/* Three Points Section Styles (続き) */
 .point-card::before {
     content: '';
     position: absolute;
@@ -1453,12 +1475,12 @@ img {
     width: 100%;
     height: 100%;
     background: linear-gradient(45deg, rgba(26,35,126,0.03), rgba(255,107,107,0.03));
-    transform: translateX(-100%);
-    transition: transform 0.5s ease;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .point-card:hover::before {
-    transform: translateX(0);
+    opacity: 1;
 }
 
 .point-number {
@@ -1488,6 +1510,7 @@ img {
     background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
     position: relative;
     overflow: hidden;
+    z-index: 1;
 }
 
 .pricing::before {
@@ -1498,8 +1521,8 @@ img {
     top: -50%;
     left: -50%;
     background: 
-        radial-gradient(circle at 30% 30%, rgba(26,35,126,0.02) 0%, transparent 70%),
-        radial-gradient(circle at 70% 70%, rgba(255,107,107,0.02) 0%, transparent 70%);
+        radial-gradient(circle at 30% 30%, rgba(26,35,126,0.02) 0%, rgba(255,107,107,0.02) 70%),
+        radial-gradient(circle at 70% 70%, rgba(255,107,107,0.02) 0%, rgba(255,255,255,0) 70%);
     animation: rotate 30s linear infinite;
 }
 
@@ -1539,6 +1562,24 @@ img {
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.price-card.main-plan {
+    border: 2px solid #1a237e;
+    animation-delay: 0.3s;
+}
+
+.price-card.monthly-plan {
+    border: 2px solid transparent;
+    animation-delay: 0.6s;
+}
+
+.price-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
 }
 
 .price-card::before {
@@ -1555,25 +1596,6 @@ img {
 
 .price-card:hover::before {
     opacity: 1;
-}
-
-.main-plan {
-    border: 2px solid #1a237e;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 0.8s ease forwards 0.3s;
-}
-
-.monthly-plan {
-    border: 2px solid transparent;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 0.8s ease forwards 0.6s;
-}
-
-.price-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
 }
 
 .price-card-header {
@@ -1631,8 +1653,20 @@ img {
     color: #666;
 }
 
+.price-card-content {
+    text-align: center;
+}
+
+.included-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
 .feature-list {
     list-style: none;
+    padding: 0;
 }
 
 .feature-list li {
@@ -1680,9 +1714,9 @@ img {
     animation: fadeInUp 0.8s ease forwards 0.9s;
     position: relative;
     overflow: hidden;
+    z-index: 2;
 }
 
-/* Contact CTA Styles (続き) */
 .contact-cta::before {
     content: '';
     position: absolute;
@@ -1691,7 +1725,6 @@ img {
     width: 200%;
     height: 200%;
     background: linear-gradient(45deg, rgba(26,35,126,0.05), rgba(255,107,107,0.05));
-    transform-origin: center;
     animation: rotate 20s linear infinite;
 }
 
@@ -1753,6 +1786,7 @@ img {
     padding: 80px 20px 40px;
     position: relative;
     overflow: hidden;
+    z-index: 1;
 }
 
 .footer-container::before {
@@ -1893,7 +1927,6 @@ img {
     transform: translateX(0);
 }
 
-/* Footer Styles (続き) */
 .footer-contact {
     opacity: 0;
     transform: translateY(30px);
@@ -1943,12 +1976,6 @@ img {
     transform: translate(-50%, -50%) scale(1);
 }
 
-.footer-contact-text {
-    font-size: 0.9rem;
-    color: rgba(255,255,255,0.8);
-    line-height: 1.6;
-}
-
 .footer-bottom {
     max-width: 1200px;
     margin: 0 auto;
@@ -1996,7 +2023,32 @@ img {
     font-size: 0.9rem;
 }
 
-/* Global Animation Keyframes */
+/* Additional Animations for Animated Headings */
+.animated-heading {
+    display: inline-block;
+    overflow: hidden;
+}
+
+.animated-heading .char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInChar 0.5s forwards;
+}
+
+.animated-heading .char:nth-child(n) {
+    animation-delay: calc(0.05s * var(--char-index));
+}
+
+/* Utility Classes */
+.animate-on-scroll {
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+/* Additional Animations */
 @keyframes fadeInLeft {
     from {
         opacity: 0;
@@ -2019,23 +2071,21 @@ img {
     }
 }
 
-@keyframes expandWidth {
-    from {
-        width: 0;
-        opacity: 0;
-    }
-    to {
-        width: 60px;
-        opacity: 1;
-    }
-}
-
 @keyframes scaleIn {
     from {
         transform: scale(0);
     }
     to {
         transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }
 
@@ -2093,25 +2143,3 @@ img {
         text-align: center;
     }
 }
-
-/* Utility Classes */
-.animate-on-scroll {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease;
-}
-
-.animate-on-scroll.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.fade-in {
-    animation: fadeIn 0.8s ease forwards;
-}
-
-.delay-1 { animation-delay: 0.2s; }
-.delay-2 { animation-delay: 0.4s; }
-.delay-3 { animation-delay: 0.6s; }
-.delay-4 { animation-delay: 0.8s; }
-.delay-5 { animation-delay: 1s; }
