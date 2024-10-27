@@ -1,5 +1,3 @@
-// script.js
-
 document.addEventListener('DOMContentLoaded', () => {
     // パーティクルアニメーション
     class ParticleSystem {
@@ -331,20 +329,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Swiperの初期化
     var swiper = new Swiper('.mySwiper', {
-        loop: true, // ループの有効化
+        loop: true,
         autoplay: {
-            delay: 5000, // 自動再生の遅延時間（ミリ秒）
-            disableOnInteraction: false, // ユーザー操作後も自動再生を続行
+            delay: 5000,
+            disableOnInteraction: false,
         },
         pagination: {
             el: '.swiper-pagination',
-            clickable: true, // ページネーションのクリックを有効化
+            clickable: true,
         },
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
         },
-        // レスポンシブ設定
         breakpoints: {
             640: {
                 slidesPerView: 1,
@@ -365,7 +362,6 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
         new ParticleSystem();
         new BackgroundAnimation();
-        // new SliderController(); // 削除済み
         new HeaderController();
         new ScrollAnimationController();
         new TextAnimationController();
