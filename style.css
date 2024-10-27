@@ -473,7 +473,7 @@ img {
 
 /* Services Section Styles */
 .services {
-    padding: 100px 20px;
+    padding: 7% 3%;
     background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
     overflow: hidden;
     position: relative;
@@ -491,7 +491,7 @@ img {
     font-family: 'Playfair Display', serif;
     font-size: 2.2rem;
     color: #333;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
     position: relative;
 }
 
@@ -915,7 +915,7 @@ img {
 
 /* Beyond Creation Section Styles */
 .beyond-creation {
-    padding: 100px 20px;
+    padding: 8% 20px;
     background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
     position: relative;
     overflow: hidden;
@@ -932,7 +932,7 @@ img {
 
 .beyond-creation-title {
     font-family: 'Playfair Display', serif;
-    font-size: 2.8rem;
+    font-size: 2rem;
     font-weight: bold;
     color: #333;
     margin-bottom: 60px;
@@ -1206,7 +1206,7 @@ img {
 
 /* Usage Example Section Styles */
 .usage-example {
-    padding: 80px 20px;
+    padding: 8% 20px;
     background-color: #f8f9fa;
     position: relative;
     overflow: hidden;
@@ -1244,7 +1244,7 @@ img {
 
 /* Three Points Section Styles */
 .three-points {
-    padding: 100px 20px;
+    padding: 8% 10%;
     background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
     position: relative;
     overflow: hidden;
@@ -1888,4 +1888,8 @@ img {
     to {
         opacity: 1;
     }
+}
+
+.contact-cta h3{
+    font-size: 1.2rem;
 }
