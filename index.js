@@ -218,39 +218,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         init() {
-            this.setupIntersectionObserver();
             this.setupGSAPAnimations();
-        }
-
-        setupIntersectionObserver() {
-            const options = {
-                threshold: 0.2,
-                rootMargin: '0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, options);
-
-            this.elements.forEach(element => {
-                observer.observe(element);
-            });
         }
 
         setupGSAPAnimations() {
             gsap.registerPlugin(ScrollTrigger);
 
-            // Service Cards Animation
-            document.querySelectorAll('.service-card').forEach((card, index) => {
-                gsap.from(card, {
+            // General Animation for .animate-on-scroll elements
+            this.elements.forEach((element, index) => {
+                gsap.from(element, {
                     scrollTrigger: {
-                        trigger: card,
-                        start: 'top bottom-=100',
+                        trigger: element,
+                        start: 'center center', // アニメーションが画面の中央に来たときに開始
                         toggleActions: 'play none none reverse'
                     },
                     y: 50,
@@ -261,12 +240,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
 
-            // Section Titles Animation
+            // Section Titles Animation (excluding hero-title)
             document.querySelectorAll('h2:not(.hero-title)').forEach(title => {
                 gsap.from(title, {
                     scrollTrigger: {
                         trigger: title,
-                        start: 'top bottom-=100'
+                        start: 'center center' // 画面の中央に来たときに開始
                     },
                     y: 30,
                     opacity: 0,
@@ -316,7 +295,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 gsap.from(element, {
                     scrollTrigger: {
                         trigger: element,
-                        start: 'top bottom-=100'
+                        start: 'center center' // 画面の中央に来たときに開始
                     },
                     y: 30,
                     opacity: 0,

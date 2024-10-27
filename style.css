@@ -8,8 +8,8 @@
 /* Global Styles */
 body {
     font-family: 'Noto Sans JP', 'Montserrat', sans-serif;
-    background-color: #ffffff;
-    color: #333333;
+    background-color: #ffffff; /* 元の背景色を維持 */
+    color: #333333; /* 元のテキスト色を維持 */
     line-height: 1.6;
     overflow-x: hidden;
 }
@@ -25,26 +25,10 @@ img {
 }
 
 /* Background Animations */
-.background-animations {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: -2;
-}
 
 .background-shapes {
     width: 100%;
     height: 100%;
-}
-
-.animated-path {
-    stroke-width: 0.5;
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-    animation: drawPath 10s ease-in-out infinite;
 }
 
 @keyframes drawPath {
@@ -60,15 +44,6 @@ img {
 }
 
 /* Particle Animation */
-.particle-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: -1;
-}
 
 .particles {
     width: 100%;
@@ -132,14 +107,14 @@ img {
     font-family: 'Playfair Display', serif;
     font-size: 28px;
     font-weight: 700;
-    color: #eb6b71;
+    color: #FF69B4; /* ロゴの色をホットピンクに変更 */
     letter-spacing: 1px;
 }
 
 .logo-accent {
     font-family: 'Montserrat', sans-serif;
     font-size: 12px;
-    color: #666;
+    color: #666; /* テキスト色は元のまま */
     letter-spacing: 2px;
 }
 
@@ -156,12 +131,12 @@ img {
     flex-direction: column;
     align-items: center;
     font-size: 15px;
-    color: #ff8e8e;
+    color: #FF69B4; /* ナビゲーションリンクの色をピンクに変更 */
     transition: all 0.3s ease;
 }
 
 .nav-link:hover {
-    color: #f04fe2;
+    color: #FF1493; /* ホバー時にディープピンクに変更 */
     transform: translateY(-2px);
 }
 
@@ -172,7 +147,7 @@ img {
     left: 50%;
     width: 0;
     height: 2px;
-    background: #ff87e1;
+    background: #FF69B4; /* 下線の色をピンクに変更 */
     transition: all 0.3s ease;
     transform: translateX(-50%);
 }
@@ -184,13 +159,13 @@ img {
 .nav-link-en {
     font-family: 'Montserrat', sans-serif;
     font-size: 10px;
-    color: #999;
+    color: #999; /* テキスト色は元のまま */
     margin-top: 2px;
     transition: all 0.3s ease;
 }
 
 .nav-link-button {
-    background: #f05757;
+    background: #FF69B4; /* ボタンの背景色をピンクに変更 */
     color: white;
     padding: 12px 24px;
     border-radius: 50px;
@@ -213,9 +188,9 @@ img {
 }
 
 .nav-link-button:hover {
-    background: #ff0000;
+    background: #FF1493; /* ホバー時にディープピンクに変更 */
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(26, 35, 126, 0.2);
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.2); /* シャドウ色をピンクに変更 */
 }
 
 .nav-link-button:hover::before {
@@ -236,7 +211,7 @@ img {
     display: block;
     width: 25px;
     height: 2px;
-    background: #333;
+    background: #FF69B4; /* ハンバーガーメニューの色をピンクに変更 */
     margin: 5px 0;
     transition: all 0.3s ease;
 }
@@ -249,7 +224,7 @@ img {
     width: 100%;
     background: rgba(255, 255, 255, 0.98);
     padding: 20px;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 20px rgba(255, 105, 180, 0.1); /* シャドウ色をピンクに変更 */
     transform: translateY(-100%);
     transition: transform 0.3s ease;
     backdrop-filter: blur(10px);
@@ -279,7 +254,7 @@ img {
 }
 
 .mobile-nav-list a {
-    color: #333;
+    color: #FF69B4; /* モバイルナビゲーションリンクの色をピンクに変更 */
     font-size: 16px;
     display: block;
     padding: 10px;
@@ -287,12 +262,12 @@ img {
 }
 
 .mobile-nav-list a:hover {
-    color: #1a237e;
+    color: #C2185B; /* ホバー時により濃いピンクに変更 */
     transform: translateX(10px);
 }
 
 .mobile-contact {
-    background: #1a237e;
+    background: #C2185B; /* モバイルコンタクトボタンの背景色を濃いピンクに変更 */
     color: white !important;
     text-align: center;
     border-radius: 50px;
@@ -304,9 +279,9 @@ img {
 }
 
 .mobile-contact:hover {
-    background: #2a337e;
+    background: #AD1457; /* ホバー時にさらに濃いピンクに変更 */
     transform: translateY(-2px) !important;
-    box-shadow: 0 4px 15px rgba(26, 35, 126, 0.2);
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.2); /* シャドウ色をピンクに変更 */
 }
 
 /* Hero Section Styles */
@@ -316,7 +291,7 @@ img {
     height: 100vh;
     display: flex;
     overflow: hidden;
-    background-color: #f0f4f8;
+    background-color: #f0f4f8; /* 元の背景色を維持 */
     z-index: 0;
 }
 
@@ -369,7 +344,7 @@ img {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(-5deg);
-    color: #ff6b6b;
+    color: #FF69B4; /* オーバーレイテキストの色をピンクに変更 */
     font-size: 5rem;
     font-family: 'Caveat', cursive;
     font-weight: 700;
@@ -416,7 +391,7 @@ img {
     font-family: 'Playfair Display', serif;
     font-size: 5rem;
     font-weight: 700;
-    color: #333;
+    color: #333; /* 主要なテキスト色を維持 */
     line-height: 1.4;
     margin-bottom: 20px;
     opacity: 0;
@@ -426,7 +401,7 @@ img {
 
 .hero-title-sub {
     font-size: 2rem;
-    color: #666;
+    color: #666; /* 主要なテキスト色を維持 */
     line-height: 1.6;
     margin-bottom: 40px;
     opacity: 0;
@@ -443,7 +418,7 @@ img {
 .hero-button {
     display: inline-block;
     padding: 18px 40px;
-    background: #ff6b6b;
+    background: #FF69B4; /* ボタンの背景色をピンクに変更 */
     color: white;
     text-decoration: none;
     border-radius: 50px;
@@ -468,7 +443,7 @@ img {
 
 .hero-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(255, 107, 107, 0.2);
+    box-shadow: 0 10px 20px rgba(255, 105, 180, 0.2); /* シャドウ色をピンクに変更 */
 }
 
 .hero-button:hover::before {
@@ -478,7 +453,7 @@ img {
 /* Services Section Styles */
 .services {
     padding: 7% 3%;
-    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); /* 背景色は元のまま */
     overflow: hidden;
     position: relative;
     z-index: 1;
@@ -494,7 +469,7 @@ img {
     text-align: center;
     font-family: 'Playfair Display', serif;
     font-size: 2.2rem;
-    color: #333;
+    color: #C2185B; /* タイトルの色をピンクに変更 */
     margin-bottom: 30px;
     position: relative;
 }
@@ -507,7 +482,7 @@ img {
     transform: translateX(-50%);
     width: 60px;
     height: 3px;
-    background: #1a237e;
+    background: #FF69B4; /* 下線の色をピンクに変更 */
     opacity: 0;
     animation: expandWidth 0.8s ease forwards 0.5s;
 }
@@ -520,7 +495,7 @@ img {
 }
 
 .service-card {
-    background: #ffffff;
+    background: #ffffff; /* 背景色は元のまま */
     border-radius: 15px;
     padding: 40px 30px;
     position: relative;
@@ -530,7 +505,7 @@ img {
     min-height: 300px;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* シャドウ色は元のまま */
     z-index: 1;
 }
 
@@ -541,7 +516,7 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, rgba(26,35,126,0.05) 0%, rgba(255,107,107,0.05) 100%);
+    background: linear-gradient(45deg, rgba(255,105,180,0.05) 0%, rgba(255,105,180,0.05) 100%); /* 装飾のグラデーションをピンク系に変更 */
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -552,7 +527,7 @@ img {
 
 .service-title {
     font-size: 1.5rem;
-    color: #333;
+    color: #C2185B; /* タイトルの色をピンクに変更 */
     line-height: 1.6;
     margin-bottom: 20px;
     position: relative;
@@ -569,11 +544,11 @@ img {
 
 .service-card:hover {
     transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 15px 30px rgba(255,105,180,0.15); /* シャドウ色をピンクに変更 */
 }
 
 .service-card:hover .service-title {
-    color: #1a237e;
+    color: #C2185B; /* ホバー時の色をピンクに変更 */
 }
 
 .service-card:hover .service-content {
@@ -584,7 +559,7 @@ img {
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
@@ -620,6 +595,96 @@ img {
         transform: translateY(0);
     }
 }
+
+/* カードが浮かび上がるアニメーション */
+.animated {
+    opacity: 0; /* 初期状態を透明に */
+    transform: translateY(20px); /* 初期位置を下に */
+    animation: fadeInUp 1s ease forwards;
+}
+
+.animated:nth-child(1) {
+    animation-delay: 0.3s;
+}
+
+.animated:nth-child(2) {
+    animation-delay: 0.6s;
+}
+
+.animated:nth-child(3) {
+    animation-delay: 0.9s;
+}
+
+.animated:nth-child(4) {
+    animation-delay: 1.2s;
+}
+
+.animated:nth-child(5) {
+    animation-delay: 1.5s;
+}
+
+/* カード内のSVGスタイル */
+.card-svg {
+    position: absolute;
+    z-index: 0;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.card-svg.rotation {
+    top: 10%;
+    right: 10%;
+    width: 50px;
+    height: 50px;
+}
+
+.card-svg.wave {
+    bottom: 10%;
+    left: 10%;
+    width: 60px;
+    height: 60px;
+}
+
+/* Example for price-card */
+.price-card {
+    position: relative; /* SVGを正しく配置するため */
+}
+
+.price-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255,105,180,0.03), rgba(255,105,180,0.03)); /* 装飾のグラデーションをピンク系に変更 */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.price-card:hover::before {
+    opacity: 1;
+}
+
+.price-card.animate-card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease forwards;
+}
+
+.price-card.animate-card:nth-child(1) {
+    animation-delay: 0.3s;
+}
+
+.price-card.animate-card:nth-child(2) {
+    animation-delay: 0.6s;
+}
+
+.price-card.animate-card:nth-child(3) {
+    animation-delay: 0.9s;
+}
+
+/* その他のセクションやカードにも同様に適用可能 */
 
 /* Responsive Styles */
 @media (max-width: 1200px) {
@@ -795,7 +860,7 @@ img {
 /* Lowest Price Section Styles */
 .lowest-price {
     padding: 80px 20px;
-    background-color: #f8f9fa;
+    background-color: #f8f9fa; /* 背景色は元のまま */
     overflow: hidden;
     position: relative;
     z-index: 1;
@@ -822,7 +887,7 @@ img {
     font-family: 'Playfair Display', serif;
     font-size: 2.2rem;
     font-weight: bold;
-    color: #333;
+    color: #C2185B; /* タイトルの色をピンクに変更 */
     margin-bottom: 30px;
     line-height: 1.4;
     position: relative;
@@ -835,7 +900,7 @@ img {
     left: 0;
     width: 60px;
     height: 3px;
-    background: linear-gradient(to right, #1a237e, #ff6b6b);
+    background: linear-gradient(to right, #C2185B, #FF69B4); /* グラデーションをピンク系に変更 */
     transform: scaleX(1);
     opacity: 1;
 }
@@ -851,19 +916,20 @@ img {
     padding-left: 30px;
     position: relative;
     transition: transform 0.3s ease, color 0.3s ease;
+    color: #333333; /* テキスト色を元に戻す */
 }
 
 .lowest-price-features li::before {
     content: "✓";
     position: absolute;
     left: 0;
-    color: #ff6b6b;
+    color: #FF69B4; /* チェックマークの色をピンクに変更 */
     transform: scale(1);
     opacity: 1;
 }
 
 .lowest-price-features li:hover {
-    color: #1a237e;
+    color: #C2185B; /* ホバー時にピンクに変更 */
     transform: translateX(5px);
 }
 
@@ -873,7 +939,7 @@ img {
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,105,180,0.2); /* ボーダー色をピンクに変更 */
     transform: translateY(0);
     opacity: 1;
     animation: none;
@@ -882,24 +948,6 @@ img {
 .lowest-price-image {
     flex: 1;
     position: relative;
-}
-
-.image-overlay {
-    position: absolute;
-    top: -20px;
-    right: -20px;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, rgba(26,35,126,0.1) 0%, rgba(255,107,107,0.1) 100%);
-    z-index: 1;
-    border-radius: 8px;
-    opacity: 0.8;
-    transform: scale(0.95);
-    transition: transform 0.3s ease;
-}
-
-.lowest-price-image:hover .image-overlay {
-    transform: scale(1.05);
 }
 
 .lowest-price-image img {
@@ -938,7 +986,7 @@ img {
     font-family: 'Playfair Display', serif;
     font-size: 2rem;
     font-weight: bold;
-    color: #333;
+    color: #C2185B; /* タイトルの色をピンクに変更 */
     margin-bottom: 60px;
     line-height: 1.4;
     position: relative;
@@ -955,7 +1003,7 @@ img {
     transform: translateX(-50%);
     width: 60px;
     height: 3px;
-    background: linear-gradient(to right, #1a237e, #ff6b6b);
+    background: linear-gradient(to right, #C2185B, #FF69B4); /* グラデーションをピンク系に変更 */
     opacity: 1;
 }
 
@@ -964,7 +1012,7 @@ img {
     margin: 0 auto;
     font-size: 1.4rem;
     line-height: 2;
-    color: #555;
+    color: #333333; /* テキスト色を元に戻す */
     opacity: 1;
     transform: translateY(0);
     animation: none;
@@ -979,7 +1027,7 @@ img {
 /* Performance Ads Section Styles */
 .performance-ads {
     padding: 80px 20px;
-    background-color: #f8f9fa;
+    background-color: #f8f9fa; /* 背景色は元のまま */
     position: relative;
     overflow: hidden;
     z-index: 1;
@@ -1006,7 +1054,7 @@ img {
     font-family: 'Playfair Display', serif;
     font-size: 2.2rem;
     font-weight: bold;
-    color: #333;
+    color: #C2185B; /* タイトルの色をピンクに変更 */
     margin-bottom: 40px;
     position: relative;
 }
@@ -1018,7 +1066,7 @@ img {
     left: 0;
     width: 60px;
     height: 3px;
-    background: linear-gradient(to right, #1a237e, #ff6b6b);
+    background: linear-gradient(to right, #C2185B, #FF69B4); /* グラデーションをピンク系に変更 */
     transform: scaleX(1);
     opacity: 1;
 }
@@ -1026,23 +1074,23 @@ img {
 .performance-ads-description {
     font-size: 1.2rem;
     line-height: 1.8;
-    color: #555;
+    color: #333333; /* テキスト色を元に戻す */
 }
 
 .performance-ads-point {
     margin-top: 30px;
     padding: 30px;
-    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7)); /* 背景色は元のまま */
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* シャドウ色は元のまま */
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,105,180,0.2); /* ボーダー色をピンクに変更 */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .performance-ads-point:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    box-shadow: 0 15px 40px rgba(255,105,180,0.1); /* シャドウ色をピンクに変更 */
 }
 
 .performance-ads-diagram {
@@ -1064,7 +1112,7 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, rgba(26,35,126,0.1), rgba(255,107,107,0.1));
+    background: linear-gradient(45deg, rgba(255,105,180,0.1), rgba(255,105,180,0.1)); /* 装飾のグラデーションをピンク系に変更 */
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -1076,6 +1124,7 @@ img {
 .diagram-container:hover {
     transform: translateY(-10px);
 }
+
 @media (max-width: 768px) {
     .performance-ads-container {
         flex-direction: column;
@@ -1090,12 +1139,10 @@ img {
     }
 }
 
-
-
 /* Cost Control Section Styles */
 .cost-control {
     padding: 80px 20px;
-    background-color: #ffffff;
+    background-color: #ffffff; /* 背景色は元のまま */
     position: relative;
     overflow: hidden;
     z-index: 1;
@@ -1129,7 +1176,7 @@ img {
     font-family: 'Playfair Display', serif;
     font-size: 2.2rem;
     font-weight: bold;
-    color: #333;
+    color: #C2185B; /* タイトルの色をピンクに変更 */
     margin-bottom: 40px;
 }
 
@@ -1144,18 +1191,18 @@ img {
     align-items: center;
     gap: 20px;
     padding: 25px;
-    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7)); /* 背景色は元のまま */
     border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05); /* シャドウ色は元のまま */
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,105,180,0.2); /* ボーダー色をピンクに変更 */
     transition: all 0.3s ease;
 }
 
 .flow-item:hover {
     transform: translateX(10px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    background: linear-gradient(135deg, rgba(255,255,255,1), rgba(255,255,255,0.8));
+    box-shadow: 0 10px 30px rgba(255,105,180,0.1); /* シャドウ色をピンクに変更 */
+    background: linear-gradient(135deg, rgba(255,255,255,1), rgba(255,255,255,0.8)); /* 背景色は元のまま */
 }
 
 .flow-number {
@@ -1164,7 +1211,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #1a237e, #2a337e);
+    background: linear-gradient(135deg, #C2185B, #AD1457); /* 背景色をピンク系に変更 */
     color: white;
     border-radius: 50%;
     font-weight: bold;
@@ -1177,7 +1224,7 @@ img {
 }
 
 .flow-arrow {
-    color: #1a237e;
+    color: #C2185B; /* 矢印の色をピンクに変更 */
     font-size: 1.5rem;
     text-align: center;
     margin: 0 20px;
@@ -1211,7 +1258,7 @@ img {
 /* Usage Example Section Styles */
 .usage-example {
     padding: 8% 20px;
-    background-color: #f8f9fa;
+    background-color: #f8f9fa; /* 背景色は元のまま */
     position: relative;
     overflow: hidden;
     z-index: 1;
@@ -1228,7 +1275,7 @@ img {
     text-align: center;
     font-family: 'Playfair Display', serif;
     font-size: 2.2rem;
-    color: #333;
+    color: #C2185B; /* タイトルの色をピンクに変更 */
     margin-bottom: 20px;
 }
 
@@ -1236,7 +1283,7 @@ img {
     text-align: center;
     font-family: 'Montserrat', sans-serif;
     font-size: 1.4rem;
-    color: #666;
+    color: #666; /* テキスト色は元のまま */
     margin-bottom: 60px;
 }
 
@@ -1249,7 +1296,7 @@ img {
 /* Three Points Section Styles */
 .three-points {
     padding: 8% 10%;
-    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); /* 背景色は元のまま */
     position: relative;
     overflow: hidden;
     z-index: 1;
@@ -1266,7 +1313,7 @@ img {
     text-align: center;
     font-family: 'Playfair Display', serif;
     font-size: 2.2rem;
-    color: #333;
+    color: #C2185B; /* タイトルの色をピンクに変更 */
     margin-bottom: 60px;
 }
 
@@ -1277,10 +1324,10 @@ img {
 }
 
 .point-card {
-    background: white;
+    background: #ffffff; /* 背景色は元のまま */
     padding: 40px 30px;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* シャドウ色は元のまま */
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -1293,7 +1340,7 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, rgba(26,35,126,0.03), rgba(255,107,107,0.03));
+    background: linear-gradient(45deg, rgba(255,105,180,0.03), rgba(255,105,180,0.03)); /* 装飾のグラデーションをピンク系に変更 */
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -1306,7 +1353,7 @@ img {
     font-family: 'Montserrat', sans-serif;
     font-size: 3rem;
     font-weight: 700;
-    color: rgba(26,35,126,0.1);
+    color: rgba(255,105,180,0.1); /* 数字の色をピンク系に変更 */
     position: absolute;
     top: 10px;
     left: 10px;
@@ -1314,13 +1361,13 @@ img {
 }
 
 .point-card:hover .point-number {
-    color: rgba(26,35,126,0.2);
+    color: rgba(255,105,180,0.2); /* ホバー時の色をピンク系に変更 */
     transform: scale(1.1);
 }
 
 .point-card:hover {
     transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    box-shadow: 0 20px 40px rgba(255,105,180,0.1); /* シャドウ色をピンクに変更 */
 }
 
 @media (max-width: 768px) {
@@ -1334,7 +1381,7 @@ img {
 /* Pricing Section Styles */
 .pricing {
     padding: 100px 20px;
-    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); /* 背景色は元のまま */
     position: relative;
     overflow: hidden;
     z-index: 1;
@@ -1351,7 +1398,7 @@ img {
     text-align: center;
     font-family: 'Playfair Display', serif;
     font-size: 2rem;
-    color: #333;
+    color: #C2185B; /* タイトルの色をピンクに変更 */
     margin-bottom: 60px;
 }
 
@@ -1364,10 +1411,10 @@ img {
 }
 
 .price-card {
-    background: white;
+    background: #ffffff; /* 背景色は元のまま */
     border-radius: 20px;
     padding: 40px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08); /* シャドウ色は元のまま */
     flex: 1;
     max-width: 500px;
     transition: all 0.3s ease;
@@ -1376,7 +1423,7 @@ img {
 }
 
 .price-card.main-plan {
-    border: 2px solid #1a237e;
+    border: 2px solid #C2185B; /* ボーダー色をピンクに変更 */
 }
 
 .price-card.monthly-plan {
@@ -1385,7 +1432,7 @@ img {
 
 .price-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+    box-shadow: 0 25px 50px rgba(255,105,180,0.15); /* シャドウ色をピンクに変更 */
 }
 
 .price-card::before {
@@ -1395,7 +1442,7 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, rgba(26,35,126,0.03), rgba(255,107,107,0.03));
+    background: linear-gradient(45deg, rgba(255,105,180,0.03), rgba(255,105,180,0.03)); /* 装飾のグラデーションをピンク系に変更 */
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -1408,14 +1455,13 @@ img {
     text-align: center;
     margin-bottom: 30px;
     padding-bottom: 30px;
-    border-bottom: 1px solid #eee;
-    position: relative;
+    border-bottom: 1px solid #eee; /* オプション: 色をそのまま維持 */
 }
 
 .price-card-label {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.4rem;
-    color: #1a237e;
+    color: #C2185B; /* ラベルの色をピンクに変更 */
     margin-bottom: 20px;
 }
 
@@ -1430,17 +1476,17 @@ img {
     font-family: 'Montserrat', sans-serif;
     font-size: 3rem;
     font-weight: bold;
-    color: #333;
+    color: #C2185B; /* 価格の色をピンクに変更 */
 }
 
 .currency {
     font-size: 1.5rem;
-    color: #333;
+    color: #C2185B; /* 通貨記号の色をピンクに変更 */
 }
 
 .tax {
     font-size: 1rem;
-    color: #666;
+    color: #C2185B; /* 税金表示の色をピンクに変更 */
 }
 
 .price-card-content {
@@ -1450,7 +1496,7 @@ img {
 .included-title {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.2rem;
-    color: #333;
+    color: #C2185B; /* タイトルの色をピンクに変更 */
     margin-bottom: 20px;
 }
 
@@ -1461,7 +1507,7 @@ img {
 
 .feature-list li {
     margin-bottom: 15px;
-    color: #555;
+    color: #333333; /* テキスト色を元に戻す */
     font-size: 1.1rem;
     line-height: 1.6;
     position: relative;
@@ -1473,13 +1519,13 @@ img {
     content: "✓";
     position: absolute;
     left: 0;
-    color: #ff6b6b;
+    color: #FF69B4; /* チェックマークの色をピンクに変更 */
     opacity: 1;
     transform: scale(1);
 }
 
 .feature-list li:hover {
-    color: #1a237e;
+    color: #C2185B; /* ホバー時にピンクに変更 */
     transform: translateX(5px);
 }
 
@@ -1488,11 +1534,11 @@ img {
     text-align: center;
     margin-top: 80px;
     padding: 60px;
-    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7)); /* 背景色は元のまま */
     border-radius: 30px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.05); /* シャドウ色は元のまま */
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,105,180,0.2); /* ボーダー色をピンクに変更 */
     transition: none;
     opacity: 1;
     transform: translateY(0);
@@ -1501,20 +1547,20 @@ img {
 .contact-cta h3 {
     font-family: 'Playfair Display', serif;
     font-size: 1.8rem;
-    color: #333;
+    color: #C2185B; /* テキスト色をピンクに変更 */
     margin-bottom: 15px;
 }
 
 .contact-cta p {
     font-size: 1.2rem;
-    color: #666;
+    color: #666; /* テキスト色は元のまま */
     margin-bottom: 30px;
 }
 
 .contact-button {
     display: inline-block;
     padding: 18px 40px;
-    background: linear-gradient(45deg, #1a237e, #2a337e);
+    background: linear-gradient(45deg, #C2185B, #AD1457); /* ボタンの背景色をピンク系に変更 */
     color: white;
     text-decoration: none;
     border-radius: 50px;
@@ -1538,9 +1584,9 @@ img {
 }
 
 .contact-button:hover {
-    background: linear-gradient(45deg, #2a337e, #3a437e);
+    background: linear-gradient(45deg, #AD1457, #C2185B); /* ホバー時に色を変更 */
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(26,35,126,0.3);
+    box-shadow: 0 10px 30px rgba(255,105,180,0.3); /* シャドウ色をピンクに変更 */
 }
 
 .contact-button:hover::before {
@@ -1549,7 +1595,7 @@ img {
 
 /* Footer Styles */
 .footer-container {
-    background: linear-gradient(135deg, #1a237e 0%, #2a337e 100%);
+    background: linear-gradient(135deg, #1a237e 0%, #2a337e 100%); /* 元の色を維持 */
     color: white;
     padding: 80px 20px 40px;
     position: relative;
@@ -1683,7 +1729,7 @@ img {
 .footer-contact-button {
     display: inline-block;
     padding: 15px 30px;
-    background: #ff6b6b;
+    background: #FF69B4; /* フッターコンタクトボタンの背景色をピンクに変更 */
     color: white;
     text-decoration: none;
     border-radius: 50px;
@@ -1708,7 +1754,7 @@ img {
 
 .footer-contact-button:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(255,107,107,0.3);
+    box-shadow: 0 10px 20px rgba(255,105,180,0.3); /* シャドウ色をピンクに変更 */
 }
 
 .footer-contact-button:hover::before {
@@ -1797,10 +1843,6 @@ img {
 
 
 /* Swiper Styles */
-.swiper-container {
-    width: 100%;
-    height: 100%;
-}
 
 .swiper-slide img {
     width: 100%;
@@ -1811,39 +1853,15 @@ img {
 
 .swiper-button-prev,
 .swiper-button-next {
-    color: #333;
+    color: #C2185B; /* ナビゲーションボタンの色をピンクに変更 */
 }
 
 .swiper-button-prev:hover,
 .swiper-button-next:hover {
-    color: #000;
-}
-
-.swiper-pagination-bullet {
-    background: #ccc;
-    opacity: 1;
-}
-
-.swiper-pagination-bullet-active {
-    background: #333;
+    color: #C2185B; /* ホバー時の色をピンクに変更 */
 }
 
 /* Additional Animations for Animated Headings */
-.animated-heading {
-    display: inline-block;
-    overflow: hidden;
-}
-
-.animated-heading .char {
-    display: inline-block;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInChar 0.5s forwards;
-}
-
-.animated-heading .char:nth-child(n) {
-    animation-delay: calc(0.05s * var(--char-index));
-}
 
 /* Utility Classes */
 .animate-on-scroll {
@@ -1896,4 +1914,45 @@ img {
 
 .contact-cta h3{
     font-size: 1.2rem;
+}
+
+/* 既存のCSSの続き */
+
+/* コストコントロールセクションのレスポンシブスタイル */
+@media (max-width: 768px) {
+    .cost-control-container {
+        flex-direction: column; /* 要素を縦に並べる */
+        align-items: center;    /* 中央揃えにする */
+        gap: 40px;              /* 要素間のスペースを調整 */
+        padding: 20px;          /* パディングを追加して余白を確保 */
+    }
+
+    .cost-control-content {
+        order: 1;                /* テキストを先に表示 */
+        width: 100%;             /* 幅を100%に設定 */
+        text-align: center;     /* テキストを中央揃えに */
+    }
+
+    .cost-control-diagram {
+        order: 2;                /* 画像を後に表示 */
+        width: 100%;             /* 幅を100%に設定 */
+    }
+
+    .flow-arrow {
+        display: none;           /* 矢印を非表示にする */
+    }
+
+    .cost-control-flow {
+        flex-direction: column; /* フローアイテムを縦に並べる */
+        align-items: center;    /* 中央揃えにする */
+    }
+
+    .cost-control-flow .flow-item {
+        justify-content: center; /* フローアイテムを中央揃えに */
+        flex-direction: row;     /* フローアイテム内の要素を横並びに */
+    }
+
+    .flow-number {
+        margin-right: 10px;      /* 数字とテキストの間にスペースを追加 */
+    }
 }
