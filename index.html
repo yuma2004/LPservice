@@ -396,18 +396,18 @@
     <!-- Custom Script -->
     <script src="index.js" defer></script>
     <script>
-      emailjs.init("OIPX37l1MqlWWnbo5");
+        // EmailJSの初期化とフォーム送信処理
+emailjs.init("OIPX37l1MqlWWnbo5");
 
 document.getElementById('contact-form').addEventListener('submit', function (event) {
     event.preventDefault();
-    
+
     const submitButton = document.querySelector("button[type='submit']");
     submitButton.disabled = true;
 
-    // フォームデータのプロパティ名を修正
     const formData = {
-        name: document.getElementById('name').value,      // from_name → name
-        email: document.getElementById('email').value,    // reply_to → email
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
         company: document.getElementById('company').value,
         message: document.getElementById('message').value
     };
@@ -418,6 +418,12 @@ document.getElementById('contact-form').addEventListener('submit', function (eve
             alert('送信完了いたしました！ご確認お願い致します。');
             document.getElementById('contact-form').reset(); // フォームをリセット
             submitButton.disabled = false;
+            
+            if (typeof acsTrack === 'function') {
+                acsTrack(); // 成果発生関数を呼び出し
+            } else {
+                console.error('成果発生関数が見つかりません');
+            }
         })
         .catch(function (error) {
             console.log('FAILED...', error);
