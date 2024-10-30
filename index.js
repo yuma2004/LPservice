@@ -343,37 +343,6 @@ document.addEventListener('DOMContentLoaded', () => {
         char.style.animationDelay = `${index * 0.15}s`;
     });
 
-    // 問い合わせフォームの送信処理
-    const contactForm = document.querySelector('#contact form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', async (event) => {
-            event.preventDefault();
-
-            const formData = new FormData(contactForm);
-            const data = Object.fromEntries(formData.entries());
-
-            try {
-                const response = await fetch('https://your-server-endpoint/send-email', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                });
-
-                if (response.ok) {
-                    alert('お問い合わせ内容が送信されました。');
-                    contactForm.reset();
-                } else {
-                    alert('送信に失敗しました。再度お試しください。');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('送信に失敗しました。再度お試しください。');
-            }
-        });
-    }
-
     // 各クラスの初期化
     try {
         new ParticleSystem();

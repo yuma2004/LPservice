@@ -11,6 +11,8 @@
         rel="stylesheet">
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js"></script>
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
     <script type="text/javascript" src="https://example.com/path/to/着地点タグ.js"></script>
@@ -393,31 +395,38 @@
     <script src="https://unpkg.com/split-type" defer></script>
     <!-- Custom Script -->
     <script src="index.js" defer></script>
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-    (function() {
-        emailjs.init("YOUR_USER_ID");
-    })();
+    <script>
+      emailjs.init("OIPX37l1MqlWWnbo5");
 
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-        event.preventDefault();
+document.getElementById('contact-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+    
+    const submitButton = document.querySelector("button[type='submit']");
+    submitButton.disabled = true;
 
-        emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
-            .then(function() {
-                // 問い合わせが送信完了したら、成果地点タグを発火
-                var script = document.createElement('script');
-                script.src = 'https://example.com/path/to/成果地点タグ.js';
-                document.body.appendChild(script);
+    // フォームデータのプロパティ名を修正
+    const formData = {
+        name: document.getElementById('name').value,      // from_name → name
+        email: document.getElementById('email').value,    // reply_to → email
+        company: document.getElementById('company').value,
+        message: document.getElementById('message').value
+    };
 
-                alert('お問い合わせ内容が送信されました。');
-                document.getElementById('contact-form').reset();
-            }, function(error) {
-                console.error('Error:', error);
-                alert('送信に失敗しました。再度お試しください。');
-            });
-    });
-</script>
+    emailjs.send('service_2spd7yi', 'template_xv0kjqr', formData)
+        .then(function (response) {
+            console.log('SUCCESS!', response.status, response.text);
+            alert('送信完了いたしました！ご確認お願い致します。');
+            document.getElementById('contact-form').reset(); // フォームをリセット
+            submitButton.disabled = false;
+        })
+        .catch(function (error) {
+            console.log('FAILED...', error);
+            alert('エラー内容: ' + JSON.stringify(error));
+            submitButton.disabled = false;
+        });
+});
+    </script>
+
 </body>
 
 </html>
