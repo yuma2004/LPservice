@@ -26,12 +26,12 @@ img {
 
 /* Background Animations */
 
-.background-shapes {
+/* .background-shapes {
     width: 100%;
     height: 100%;
-}
+} */
 
-@keyframes drawPath {
+/* @keyframes drawPath {
     0% {
         stroke-dashoffset: 1000;
     }
@@ -41,28 +41,28 @@ img {
     100% {
         stroke-dashoffset: -1000;
     }
-}
+} */
 
 /* Particle Animation */
 
-.particles {
+/* .particles {
     width: 100%;
     height: 100%;
-}
+} */
 
-.particle {
+/* .particle {
     fill: url(#particle-gradient);
     animation: floatParticle 3s ease-in-out infinite;
-}
+} */
 
-@keyframes floatParticle {
+/* @keyframes floatParticle {
     0%, 100% {
         transform: translate(0, 0);
     }
     50% {
         transform: translate(var(--x-offset), var(--y-offset));
     }
-}
+} */
 
 /* Header Styles */
 .header {
@@ -327,7 +327,7 @@ img {
     object-fit: cover;
     filter: brightness(0.9);
     transform: scale(1.1);
-    animation: zoomOut 1.5s ease forwards;
+    animation: zoomOut 1.5s ease forwards; /* アニメーションを保持 */
 }
 
 @keyframes zoomOut {
@@ -357,7 +357,7 @@ img {
 .hero-overlay-text .char {
     opacity: 0;
     display: inline-block;
-    animation: fadeInChar 0.8s ease forwards;
+    animation: fadeInChar 0.8s ease forwards; /* アニメーションを保持 */
     transform: translateY(20px);
 }
 
@@ -384,7 +384,7 @@ img {
 .hero-text {
     opacity: 0;
     transform: translateY(20px);
-    animation: slideUp 0.8s ease 1.8s forwards;
+    animation: slideUp 0.8s ease 1.8s forwards; /* アニメーションを保持 */
 }
 
 .hero-title-main {
@@ -396,7 +396,7 @@ img {
     margin-bottom: 20px;
     opacity: 0;
     transform: translateY(30px);
-    animation: fadeInUp 1s ease forwards 0.5s;
+    animation: fadeInUp 1s ease forwards 0.5s; /* アニメーションを保持 */
 }
 
 .hero-title-sub {
@@ -406,13 +406,13 @@ img {
     margin-bottom: 40px;
     opacity: 0;
     transform: translateY(30px);
-    animation: fadeInUp 1s ease forwards 0.8s;
+    animation: fadeInUp 1s ease forwards 0.8s; /* アニメーションを保持 */
 }
 
 .hero-cta {
     opacity: 0;
     transform: translateY(20px);
-    animation: slideUp 0.8s ease 2s forwards;
+    animation: slideUp 0.8s ease 2s forwards; /* アニメーションを保持 */
 }
 
 .hero-button {
@@ -450,6 +450,28 @@ img {
     transform: translate(-50%, -50%) scale(1);
 }
 
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Services Section Styles */
 .services {
     padding: 7% 3%;
@@ -484,7 +506,7 @@ img {
     height: 3px;
     background: #FF69B4; /* 下線の色をピンクに変更 */
     opacity: 0;
-    animation: expandWidth 0.8s ease forwards 0.5s;
+    /* animation: expandWidth 0.8s ease forwards 0.5s; */ /* アニメーションをコメントアウト */
 }
 
 .services-grid {
@@ -556,7 +578,7 @@ img {
 }
 
 /* Keyframe Animations */
-@keyframes fadeInUp {
+/* @keyframes fadeInUp {
     from {
         opacity: 0;
         transform: translateY(20px);
@@ -594,13 +616,13 @@ img {
         opacity: 1;
         transform: translateY(0);
     }
-}
+} */
 
 /* カードが浮かび上がるアニメーション */
-.animated {
+/* .animated {
     opacity: 0; /* 初期状態を透明に */
-    transform: translateY(20px); /* 初期位置を下に */
-    animation: fadeInUp 1s ease forwards;
+    /* transform: translateY(20px); /* 初期位置を下に */
+    /* animation: fadeInUp 1s ease forwards;
 }
 
 .animated:nth-child(1) {
@@ -621,7 +643,7 @@ img {
 
 .animated:nth-child(5) {
     animation-delay: 1.5s;
-}
+} */
 
 /* カード内のSVGスタイル */
 .card-svg {
@@ -666,23 +688,6 @@ img {
     opacity: 1;
 }
 
-.price-card.animate-card {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 1s ease forwards;
-}
-
-.price-card.animate-card:nth-child(1) {
-    animation-delay: 0.3s;
-}
-
-.price-card.animate-card:nth-child(2) {
-    animation-delay: 0.6s;
-}
-
-.price-card.animate-card:nth-child(3) {
-    animation-delay: 0.9s;
-}
 
 /* その他のセクションやカードにも同様に適用可能 */
 
@@ -817,13 +822,13 @@ img {
     .lowest-price-image {
         transform: translateY(0);
         opacity: 1;
-        animation: none;
+        /* animation: none; */ /* アニメーションをコメントアウト */
     }
 
     .lowest-price-content {
         transform: translateY(0);
         opacity: 1;
-        animation: none;
+        /* animation: none; */ /* アニメーションをコメントアウト */
     }
 
     .pricing-cards {
@@ -880,7 +885,7 @@ img {
     flex: 1;
     opacity: 1;
     transform: translateY(0);
-    animation: none;
+    /* animation: none; */ /* アニメーションをコメントアウト */
 }
 
 .lowest-price-title {
@@ -942,7 +947,7 @@ img {
     border: 1px solid rgba(255,105,180,0.2); /* ボーダー色をピンクに変更 */
     transform: translateY(0);
     opacity: 1;
-    animation: none;
+    /* animation: none; */ /* アニメーションをコメントアウト */
 }
 
 .lowest-price-image {
@@ -992,7 +997,7 @@ img {
     position: relative;
     opacity: 1;
     transform: translateY(0);
-    animation: none;
+    /* animation: none; */ /* アニメーションをコメントアウト */
 }
 
 .beyond-creation-title::after {
@@ -1015,7 +1020,7 @@ img {
     color: #333333; /* テキスト色を元に戻す */
     opacity: 1;
     transform: translateY(0);
-    animation: none;
+    /* animation: none; */ /* アニメーションをコメントアウト */
 }
 
 .beyond-creation-message br {
@@ -1047,7 +1052,7 @@ img {
     flex: 1;
     opacity: 1;
     transform: translateY(0);
-    animation: none;
+    /* animation: none; */ /* アニメーションをコメントアウト */
 }
 
 .performance-ads-title {
@@ -1142,7 +1147,7 @@ img {
 /* Cost Control Section Styles */
 .cost-control {
     padding: 80px 20px;
-    background-color: #ffffff; /* 背景色は元のまま */
+    background-color: #ffffff; /* 背景色は元のま�� */
     position: relative;
     overflow: hidden;
     z-index: 1;
@@ -1162,14 +1167,14 @@ img {
     flex: 1;
     opacity: 1;
     transform: translateX(0);
-    animation: none;
+    /* animation: none; */ /* アニメーションをコメントアウト */
 }
 
 .cost-control-content {
     flex: 1;
     opacity: 1;
     transform: translateX(0);
-    animation: none;
+    /* animation: none; */ /* アニメーションをコメントアウト */
 }
 
 .cost-control-title {
@@ -1229,17 +1234,17 @@ img {
     text-align: center;
     margin: 0 20px;
     opacity: 0.5;
-    animation: pulseArrow 2s ease infinite;
+    /* animation: pulseArrow 2s ease infinite; */ /* アニメーションをコメントアウト */
 }
 
-@keyframes pulseArrow {
+/* @keyframes pulseArrow {
     0%, 100% {
         transform: translateY(0);
     }
     50% {
         transform: translateY(-5px);
     }
-}
+} */
 
 @media (max-width: 768px) {
     .cost-control-container {
@@ -1248,10 +1253,33 @@ img {
         gap: 30px; /* 必要に応じて調整してください */
     }
 
-    .cost-control-diagram,
     .cost-control-content {
-        flex: none;
-        width: 100%;
+        order: 1;                /* テキストを先に表示 */
+        width: 100%;             /* 幅を100%に設定 */
+        text-align: center;     /* テキストを中央揃えに */
+    }
+
+    .cost-control-diagram {
+        order: 2;                /* 画像を後に表示 */
+        width: 100%;             /* 幅を100%に設定 */
+    }
+
+    .flow-arrow {
+        display: none;           /* 矢印を非表示にする */
+    }
+
+    .cost-control-flow {
+        flex-direction: column; /* フローアイテムを縦に並べる */
+        align-items: center;    /* 中央揃えにする */
+    }
+
+    .cost-control-flow .flow-item {
+        justify-content: center; /* フローアイテムを中央揃えに */
+        flex-direction: row;     /* フローアイテム内の要素を横並びに */
+    }
+
+    .flow-number {
+        margin-right: 10px;      /* 数字とテキストの間にスペースを追加 */
     }
 }
 
@@ -1593,6 +1621,65 @@ img {
     transform: translate(-50%, -50%) scale(1);
 }
 
+/* 問い合わせフォームのスタイル */
+.form-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 40px auto;
+}
+
+.form-container h1 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.form-container p {
+    color: #7f8c8d;
+    margin-bottom: 20px;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container select,
+.form-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-container button {
+    background-color: #3498db;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+.form-container button:hover {
+    background-color: #2980b9;
+}
+
+@media (max-width: 480px) {
+    .form-container {
+        padding: 20px;
+    }
+}
+
 /* Footer Styles */
 .footer-container {
     background: linear-gradient(135deg, #1a237e 0%, #2a337e 100%); /* 元の色を維持 */
@@ -1864,15 +1951,15 @@ img {
 /* Additional Animations for Animated Headings */
 
 /* Utility Classes */
-.animate-on-scroll {
+/* .animate-on-scroll {
     position: relative;
     z-index: 1;
     opacity: 0;
     transform: translateY(50px);
-}
+} */
 
 /* Additional Animations */
-@keyframes fadeInLeft {
+/* @keyframes fadeInLeft {
     from {
         opacity: 0;
         transform: translateX(-30px);
@@ -1910,7 +1997,7 @@ img {
     to {
         opacity: 1;
     }
-}
+} */
 
 .contact-cta h3{
     font-size: 1.2rem;
