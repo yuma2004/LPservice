@@ -16,7 +16,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
     <script type="text/javascript" src="ASP/着地点.js"></script>
-    <script type="text/javascript" src="ASP/成果発生.js"></script>
+    <!-- <script type="text/javascript" src="ASP/成果発生.js"></script> -->
 </head>
 
 <body>
@@ -398,40 +398,43 @@
     <script src="index.js" defer></script>
     <script>
         // EmailJSの初期化とフォーム送信処理
-emailjs.init("OIPX37l1MqlWWnbo5");
+        emailjs.init("OIPX37l1MqlWWnbo5");
 
-document.getElementById('contact-form').addEventListener('submit', function (event) {
-    event.preventDefault();
+        document.getElementById('contact-form').addEventListener('submit', function (event) {
+            event.preventDefault();
 
-    const submitButton = document.querySelector("button[type='submit']");
-    submitButton.disabled = true;
+            const submitButton = document.querySelector("button[type='submit']");
+            submitButton.disabled = true;
 
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        company: document.getElementById('company').value,
-        message: document.getElementById('message').value
-    };
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                company: document.getElementById('company').value,
+                message: document.getElementById('message').value
+            };
 
-    emailjs.send('service_2spd7yi', 'template_xv0kjqr', formData)
-        .then(function (response) {
-            console.log('SUCCESS!', response.status, response.text);
-            alert('送信完了いたしました！ご確認お願い致します。');
-            document.getElementById('contact-form').reset(); // フォームをリセット
-            submitButton.disabled = false;
-            
-            if (typeof acsTrack === 'function') {
-                acsTrack(); // 成果発生関数を呼び出し
-            } else {
-                console.error('成果発生関数が見つかりません');
-            }
-        })
-        .catch(function (error) {
-            console.log('FAILED...', error);
-            alert('エラー内容: ' + JSON.stringify(error));
-            submitButton.disabled = false;
+            // フォーム送信成功時の処理内
+            emailjs.send('service_2spd7yi', 'template_xv0kjqr', formData)
+                .then(function (response) {
+                    // 成功時の処理
+                    console.log('SUCCESS!', response.status, response.text);
+                    alert('送信完了いたしました！ご確認お願い致します。');
+                    document.getElementById('contact-form').reset(); // フォームをリセット
+                    submitButton.disabled = false;
+
+                    // 成果発生スクリプトを動的に読み込む
+                    var script = document.createElement('script');
+                    script.src = 'ASP/成果発生.js';
+                    document.body.appendChild(script);
+                })
+                .catch(function (error) {
+                    // エラー時の処理
+                    console.log('FAILED...', error);
+                    alert('エラー内容: ' + JSON.stringify(error));
+                    submitButton.disabled = false;
+                });
+
         });
-});
     </script>
 
 </body>
