@@ -343,6 +343,28 @@ document.addEventListener('DOMContentLoaded', () => {
         char.style.animationDelay = `${index * 0.15}s`;
     });
 
+    // サービスセクションのアニメーション
+    const serviceSection = document.querySelector('.services');
+    const serviceTitle = document.querySelector('.services-title');
+    const serviceCards = document.querySelectorAll('.service-card');
+
+    if (serviceSection) {
+        gsap.registerPlugin(ScrollTrigger);
+
+        ScrollTrigger.create({
+            trigger: serviceSection,
+            start: 'top center',
+            onEnter: () => {
+                serviceTitle.classList.add('animate');
+                serviceCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.classList.add('animate');
+                    }, index * 600); // 遅延を600msに設定
+                });
+            }
+        });
+    }
+
     // 各クラスの初期化
     try {
         new ParticleSystem();

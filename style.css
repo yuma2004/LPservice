@@ -389,7 +389,7 @@ img {
 
 .hero-title-main {
     font-family: 'Playfair Display', serif;
-    font-size: 5rem;
+    font-size: 4.6rem;
     font-weight: 700;
     color: #333; /* 主要なテキスト色を維持 */
     line-height: 1.4;
@@ -494,6 +494,9 @@ img {
     color: #C2185B; /* タイトルの色をピンクに変更 */
     margin-bottom: 30px;
     position: relative;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.5s ease, transform 1.5s ease;
 }
 
 .services-title::after {
@@ -529,6 +532,9 @@ img {
     flex-direction: column;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* シャドウ色は元のまま */
     z-index: 1;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.5s ease, transform 1.5s ease;
 }
 
 .service-card::before {
@@ -575,6 +581,11 @@ img {
 
 .service-card:hover .service-content {
     transform: translateY(-5px);
+}
+
+.services-title.animate, .service-card.animate {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Keyframe Animations */
@@ -719,6 +730,10 @@ img {
     .hero-content {
         width: 100%;
         padding: 40px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
     }
 
     .hero-overlay-text {
@@ -755,7 +770,20 @@ img {
     .mobile-menu-button {
         display: block;
     }
+
+    .services-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 }
+
 
 @media (max-width: 768px) {
     .points-grid {
@@ -897,7 +925,7 @@ img {
     line-height: 1.4;
     position: relative;
 }
-
+/* 
 .lowest-price-title::after {
     content: '';
     position: absolute;
@@ -905,10 +933,10 @@ img {
     left: 0;
     width: 60px;
     height: 3px;
-    background: linear-gradient(to right, #C2185B, #FF69B4); /* グラデーションをピンク系に変更 */
+    background: linear-gradient(to right, #C2185B, #FF69B4);
     transform: scaleX(1);
     opacity: 1;
-}
+} */
 
 .lowest-price-features {
     list-style: none;
@@ -944,10 +972,12 @@ img {
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,105,180,0.2); /* ボーダー色をピンクに変更 */
     transform: translateY(0);
     opacity: 1;
-    /* animation: none; */ /* アニメーションをコメントアウト */
+}
+
+.lowest-price-monthly   li{
+    list-style: none;
 }
 
 .lowest-price-image {
@@ -1000,7 +1030,7 @@ img {
     /* animation: none; */ /* アニメーションをコメントアウト */
 }
 
-.beyond-creation-title::after {
+/* .beyond-creation-title::after {
     content: '';
     position: absolute;
     bottom: -20px;
@@ -1008,9 +1038,9 @@ img {
     transform: translateX(-50%);
     width: 60px;
     height: 3px;
-    background: linear-gradient(to right, #C2185B, #FF69B4); /* グラデーションをピンク系に変更 */
+    background: linear-gradient(to right, #C2185B, #FF69B4); 
     opacity: 1;
-}
+} */
 
 .beyond-creation-message {
     max-width: 800px;
@@ -1064,17 +1094,17 @@ img {
     position: relative;
 }
 
-.performance-ads-title::after {
+/* .performance-ads-title::after {
     content: '';
     position: absolute;
     bottom: -10px;
     left: 0;
     width: 60px;
     height: 3px;
-    background: linear-gradient(to right, #C2185B, #FF69B4); /* グラデーションをピンク系に変更 */
+    background: linear-gradient(to right, #C2185B, #FF69B4);
     transform: scaleX(1);
     opacity: 1;
-}
+} */
 
 .performance-ads-description {
     font-size: 1.2rem;
@@ -1147,7 +1177,7 @@ img {
 /* Cost Control Section Styles */
 .cost-control {
     padding: 80px 20px;
-    background-color: #ffffff; /* 背景色は元のま�� */
+    background-color: #ffffff; /* 背景色は元のまま */
     position: relative;
     overflow: hidden;
     z-index: 1;
@@ -1450,9 +1480,6 @@ img {
     overflow: hidden;
 }
 
-.price-card.main-plan {
-    border: 2px solid #C2185B; /* ボーダー色をピンクに変更 */
-}
 
 .price-card.monthly-plan {
     border: 2px solid transparent;
@@ -1928,6 +1955,54 @@ img {
     }
 }
 
+@media (max-width: 600px) {
+    .footer-container {
+        padding: 40px 20px; /* 余白を少なくしてコンパクトに */
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr; /* 1列に統一 */
+        text-align: center;
+        gap: 20px; /* 余白を小さく */
+    }
+
+    .footer-company {
+        padding-right: 0; /* 右の余白をリセット */
+    }
+
+    .footer-nav-grid {
+        grid-template-columns: 1fr; /* ナビゲーションも1列に */
+        gap: 10px;
+    }
+
+    .footer-nav-group h3 {
+        text-align: center; /* 見出しを中央揃え */
+    }
+
+    .footer-contact {
+        align-items: center;
+        text-align: center;
+        margin-top: 20px; /* 上部に少し余白を追加 */
+    }
+
+    .footer-bottom {
+        flex-direction: column; /* 縦並びに変更 */
+        align-items: center;
+        gap: 10px; /* 余白を少なく */
+    }
+
+    .footer-legal {
+        flex-direction: column; /* 縦並びに */
+        text-align: center;
+        gap: 10px; /* 余白を追加 */
+    }
+
+    .footer-legal a {
+        font-size: 0.9rem; /* リンクを小さくして見やすく */
+    }
+}
+
+
 
 /* Swiper Styles */
 
@@ -2041,5 +2116,30 @@ img {
 
     .flow-number {
         margin-right: 10px;      /* 数字とテキストの間にスペースを追加 */
+    }
+};
+
+/* Standard font sizes for different breakpoints */
+@media (max-width: 1200px) {
+    html {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 968px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 12px;
     }
 }
