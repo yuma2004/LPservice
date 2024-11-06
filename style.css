@@ -784,7 +784,6 @@ img {
     }
 }
 
-
 @media (max-width: 768px) {
     .points-grid {
         grid-template-columns: 1fr;
@@ -845,12 +844,6 @@ img {
 
     .lowest-price-container {
         flex-direction: column;
-    }
-
-    .lowest-price-image {
-        transform: translateY(0);
-        opacity: 1;
-        /* animation: none; */ /* アニメーションをコメントアウト */
     }
 
     .lowest-price-content {
@@ -1438,7 +1431,7 @@ img {
 
 /* Pricing Section Styles */
 .pricing {
-    padding: 100px 20px;
+    padding: 20px 20px;
     background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); /* 背景色は元のまま */
     position: relative;
     overflow: hidden;
@@ -2141,5 +2134,36 @@ img {
 @media (max-width: 480px) {
     html {
         font-size: 12px;
+    }
+}
+
+/* レスポンシブデザインの追加 */
+@media (max-width: 768px) {
+    .header-nav {
+        display: none; /* デスクトップナビゲーションを非表示 */
+    }
+    
+    .mobile-menu-button {
+        display: block; /* モバイルメニューボタンを表示 */
+    }
+    
+    .mobile-menu {
+        display: none; /* モバイルメニューを非表示 */
+        flex-direction: column;
+        background-color: #ffffff;
+        width: 100%;
+    }
+    
+    .mobile-menu.active {
+        display: flex; /* アクティブ時にモバイルメニューを表示 */
+    }
+    
+    .mobile-nav-list li {
+        margin: 10px 0;
+    }
+    
+    .nav-link-button {
+        width: 100%;
+        text-align: center;
     }
 }
